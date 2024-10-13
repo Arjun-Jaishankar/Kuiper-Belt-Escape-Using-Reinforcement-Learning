@@ -6,10 +6,10 @@
 ## Frozen Lake Environment Overview
 ### Task Description:-
 ### Requirements (Libraries):-
-'gym'
-'pygame'
-'numpy'
-'matplotlib'
+`gym`  
+`pygame`  
+`numpy`  
+`matplotlib`
 ### Observation Space:-
 ### Action Space:-
 ### Rewards:-
