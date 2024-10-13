@@ -16,6 +16,8 @@
 ### About The Algorithm:-
 ## Results:-
 ("C:\Users\Arjun Jaishankar\Downloads\video_20240703_184055_edit.mp4")
+![image](https://github.com/user-attachments/assets/232000c2-303f-478f-a72b-3fab1e9e09af)
+
 # Task-2 : Minigrid Environment (Implementing Model-Free Control Algorithms)
 ## Documentation:-
 [Minigrid Empty Space Documentation](https://minigrid.farama.org/environments/minigrid/EmptyEnv/)
