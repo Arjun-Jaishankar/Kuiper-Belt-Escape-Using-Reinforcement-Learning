@@ -4,7 +4,7 @@
 ## Documentation:-
 [Gymnasium Documentation](https://gymnasium.farama.org/environments/toy_text/frozen_lake/#frozen-lake)
 ## Frozen Lake Environment Overview
-### Task Description(Aim):-
+### Task Description (Aim):-
 The aim of Task-1 is to develop an agent that can successfully navigate a slippery, frozen lake grid environment to reach a goal while avoiding holes. The agent must learn an optimal policy using dynamic programming techniques like Policy Iteration or Value Iteration to maximize its cumulative reward, despite the uncertain, stochastic transitions caused by the slippery nature of the environment.
 ### Requirements (Libraries):-
 `gym`  
@@ -94,7 +94,9 @@ Value Iteration: Updating the value function by taking the maximum expected rewa
 ## Documentation:-
 [Minigrid Empty Space Documentation](https://minigrid.farama.org/environments/minigrid/EmptyEnv/)
 ## Minigrid Environment Overview
-### Task Description:-
+### Task Description (Aim):-
+The aim of Task-2 is to train an agent to effectively navigate and interact within a grid-based environment using the MiniGrid framework. The agent's objective is to explore the grid, find a specified target object, and learn to reach that object while avoiding obstacles and utilizing available resources. This task focuses on developing robust navigation and decision-making skills, allowing the agent to learn optimal policies through trial and error, maximizing its cumulative rewards in the process.
+
 ### Requirements:-
 Try the following in IDE before implementing the algorithms:-
 ```import gym
@@ -115,9 +117,46 @@ for i in range(50):
 env.close()
 ```
 ### Observation Space:-
+The Observation Space in the MiniGrid environment encompasses a variety of information that the agent can perceive while navigating the grid. This includes:
+
+Agent's Position: The current coordinates of the agent within the grid, indicating its location.
+Grid Layout: The entire view of the grid, which may contain walls, doors, objects, and other agents. This can be represented as a 2D array or a visual representation.
+Object States: Information about nearby objects, including their types (e.g., walls, keys, goals) and states (e.g., whether they are accessible or not).
+Agent's Orientation: The direction the agent is facing (e.g., up, down, left, right), which influences its movement and interaction with objects.
+In the MiniGrid environment, the observation space can be either discrete or continuous, depending on the specific configuration of the task, and it can be represented as a pixel grid or as a structured set of features.
+The observation space includes the agent's position, grid layout, object states, and the agent's orientation. It can be represented as a 2D array or a visual representation of the grid, providing the agent with essential information for navigation and interaction.
 ### Action Space:-
+The Action Space in the MiniGrid environment defines the set of actions available to the agent at any given state. Typical actions include:
+
+Move Forward: The agent moves one step in the direction it is facing.
+Turn Left: The agent rotates 90 degrees to the left without moving.
+Turn Right: The agent rotates 90 degrees to the right without moving.
+Pick Up Object: The agent picks up an object if it is in the same location.
+Drop Object: The agent drops an object in its current location if it is holding one.
+Open Door: The agent opens a door if it is adjacent to it.
+The action space is typically discrete, and the agent must choose its actions wisely to navigate the grid efficiently, overcome obstacles, and reach its target.
+The action space consists of discrete actions: moving forward, turning left/right, picking up objects, dropping objects, and opening doors. The agent must strategically choose actions to navigate the grid and reach the target.
 ### Reward Function:-
+The Reward Function in the MiniGrid environment provides feedback to the agent based on its actions and outcomes. The rewards are structured to encourage the desired behavior and can include:
+
+Positive Reward for Reaching the Target: The agent receives a significant positive reward (e.g., +1) for successfully reaching the specified target object or goal.
+Negative Reward for Hitting Obstacles: The agent may receive a negative reward (e.g., -1) for colliding with walls or obstacles, discouraging such actions.
+Rewards for Picking Up or Dropping Objects: The agent may receive small positive rewards for successfully picking up or dropping objects, promoting exploration and interaction with the environment.
+Time Penalty: To encourage efficiency, the agent might receive a small negative reward for each time step taken, incentivizing it to reach the target quickly.
+The design of the reward function is crucial for guiding the agent’s learning process, shaping its policy, and ultimately achieving the task's goal.
+The reward function provides feedback to the agent, including positive rewards for reaching the target, negative rewards for hitting obstacles, and rewards for picking up or dropping objects. A time penalty may also apply, encouraging efficient navigation to maximize cumulative rewards.
 ### About The Algorithms:-
+1. Monte Carlo Method
+The Monte Carlo method is a reinforcement learning algorithm that relies on sampling to estimate the value of states or state-action pairs. It uses episode-based learning, meaning it evaluates the value of an action by observing the total reward received after completing an episode, which consists of a sequence of states and actions that ends in a terminal state. After each episode, the algorithm updates the value function by calculating the average of the returns for each state-action pair observed during that episode. While Monte Carlo methods are simple to implement and understand and work well for episodic tasks, they require many episodes to converge to optimal value estimates and cannot be effectively applied in environments where episodes can be infinitely long or where states are non-terminating.
+
+2. SARSA (State-Action-Reward-State-Action)
+SARSA is an on-policy temporal-difference (TD) learning algorithm that updates the value of actions based on the current policy. It evaluates and improves the policy being used to generate data, allowing the algorithm to learn from the actual actions taken, including exploration steps. The algorithm observes the reward and the next state after taking an action, and then updates the Q-value based on the next action chosen according to the current policy. This means that SARSA incorporates exploration directly into the learning process, which can lead to more gradual learning. However, this can also result in slower convergence compared to off-policy methods like Q-learning, as the policy may converge to suboptimal solutions due to the influence of exploration.
+
+3. SARSA(λ)
+SARSA(λ) extends the SARSA algorithm by integrating eligibility traces, which allow for more efficient updates. The use of eligibility traces combines the benefits of both Monte Carlo and TD methods, maintaining a trace for each state-action pair that decays over time. This enables SARSA(λ) to update not just the last action taken, but all actions in the eligibility trace, allowing the algorithm to learn from multiple past experiences. While this can lead to faster convergence than SARSA alone, it introduces additional complexity due to the management of eligibility traces and requires careful tuning of the trace decay parameter to balance the learning process effectively.
+
+4. Q-Learning
+Q-learning is an off-policy reinforcement learning algorithm that aims to learn the optimal action-value function independently of the policy being followed. This means that Q-learning evaluates the value of the optimal policy, regardless of the actions taken by the agent, and it updates the Q-values based on the maximum estimated future rewards. This approach allows Q-learning to converge to the optimal policy even when the agent is exploring the environment in a suboptimal manner. While this off-policy nature offers great flexibility, it may require more exploration to balance out the learning, especially in non-stationary environments. Nevertheless, Q-learning is typically simpler to implement and tune compared to on-policy methods, making it a more efficient choice for complex environments.
 ## Results:-
 ### Monte Carlo:-
 ![MC Learning No  of Steps Vs Episodes](https://github.com/user-attachments/assets/f9104fad-da89-4fd5-b9be-9985aa419a4b)
@@ -131,3 +170,5 @@ env.close()
 ### Sarsa(λ):-
 ![Sarsa Lambda Steps Vs Episode](https://github.com/user-attachments/assets/6b05f54b-c240-4deb-b9c0-0aa7a8b7f574)
 ![Sarsa Lambda Reward Vs Episode](https://github.com/user-attachments/assets/13902817-941a-474d-87b8-2fa1cb61a3c8)
+## Why Prefer Q-Learning for the Kuiper Belt Escape Project
+For the Kuiper Belt Escape Project, Q-learning is favored due to its strengths in learning optimal policies and robustness to exploration strategies. The off-policy nature of Q-learning allows it to learn the optimal policy independently of the actions taken by the agent, which is crucial in a dynamic and unpredictable environment like the Kuiper Belt. The algorithm’s capability to handle large state spaces efficiently enables timely decision-making, essential for navigating complex scenarios. Additionally, Q-learning’s simplicity of implementation and adaptability to stochastic environments make it a practical choice for rapid prototyping and experimentation in the project. Overall, Q-learning’s advantages in policy learning, exploration robustness, and ease of use position it as the preferred algorithm for the Kuiper Belt Escape Project.
