@@ -29,6 +29,23 @@
 ## Minigrid Environment Overview
 ### Task Description:-
 ### Requirements:-
+Try the following in IDE before implementing the algorithms:-
+```import gym
+import numpy as np 
+import random
+
+env = gym.make('MiniGrid-Empty-6x6-v0',render_mode='human')
+env.reset()
+
+for i in range(50):
+    env.render()
+    action = random.randint(0, 3)
+    print("action:",action)
+    obs=env.step(action)
+    # print(obs)
+    print(env.agent_pos,'\n')
+
+env.close()``` 
 ### Observation Space:-
 ### Action Space:-
 ### Reward Function:-
