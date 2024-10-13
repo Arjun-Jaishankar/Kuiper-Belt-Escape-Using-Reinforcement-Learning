@@ -45,7 +45,8 @@ for i in range(50):
     # print(obs)
     print(env.agent_pos,'\n')
 
-env.close()``` 
+env.close()
+```
 ### Observation Space:-
 ### Action Space:-
 ### Reward Function:-
