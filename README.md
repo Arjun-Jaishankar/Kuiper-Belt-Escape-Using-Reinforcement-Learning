@@ -4,7 +4,7 @@
 ## Documentation:-
 [Gymnasium Documentation](https://gymnasium.farama.org/environments/toy_text/frozen_lake/#frozen-lake)
 ## Frozen Lake Environment Overview
-### Description:-
+### Task Description:-
 ### Requirements:-
 ### Observation Space:-
 ### Action Space:-
@@ -13,6 +13,7 @@
 ## Results:-
 # Task-2 : Minigrid Environment (Implementing Model-Free Control Algorithms)
 ## Documentation:-
+[Minigrid Empty Space Documentation](https://minigrid.farama.org/environments/minigrid/EmptyEnv/)
 ## Minigrid Environment Overview
 ### Task Description:-
 ### Requirements:-
