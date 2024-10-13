@@ -15,7 +15,8 @@
 ### Rewards:-
 ### About The Algorithm:-
 ## Results:-
-
+![output](https://github.com/user-attachments/assets/7177c343-81ba-4607-962c-a6d4cad78724)
+![output1](https://github.com/user-attachments/assets/34f9a444-38f2-4c8e-ab6e-4f11a6b6f0db)
 ![image](https://github.com/user-attachments/assets/232000c2-303f-478f-a72b-3fab1e9e09af)
 ![image](https://github.com/user-attachments/assets/c264ff94-88f6-463b-9b58-eaed4f382b13)
 ![image](https://github.com/user-attachments/assets/c5871134-74d3-4559-b723-255a5b28d7ba)
