@@ -5,7 +5,11 @@
 [Gymnasium Documentation](https://gymnasium.farama.org/environments/toy_text/frozen_lake/#frozen-lake)
 ## Frozen Lake Environment Overview
 ### Task Description:-
-### Requirements:-
+### Requirements (Libraries):-
+'gym'
+'pygame'
+'numpy'
+'matplotlib'
 ### Observation Space:-
 ### Action Space:-
 ### Rewards:-
