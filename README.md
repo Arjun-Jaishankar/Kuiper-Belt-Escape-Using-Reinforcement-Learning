@@ -170,5 +170,61 @@ Q-learning is an off-policy reinforcement learning algorithm that aims to learn 
 ### Sarsa(λ):-
 ![Sarsa Lambda Steps Vs Episode](https://github.com/user-attachments/assets/6b05f54b-c240-4deb-b9c0-0aa7a8b7f574)
 ![Sarsa Lambda Reward Vs Episode](https://github.com/user-attachments/assets/13902817-941a-474d-87b8-2fa1cb61a3c8)
+# Project:- Kuiper Belt Escape Using Reinforcement Learning
+## Aim:-
+To train an agent to escape from the Kuiper Belt, avoiding the incoming asteroids of random sizes, speeds, and appearing locations, without any prior experience.
+## Environment Overview:-
+### Agent:-
+Spaceship
+### State:-
+Agent sends off n beams of virtual lidar system.
+### Observation Space:-
+Array of size [2*n-1] contains Normalized Distances & Collision Characteristics
+### Actions:-
+0: Don't Move
+1: Up
+2: Right
+3: Down
+4: Left
+### Rewards:-
+Inversely related to the distance of agent from center
+Penalties for collision
+### Image:-
+![Image](<img width="261" alt="146223615-de23593f-02df-4ef1-b356-87153208d6f1" src="https://github.com/user-attachments/assets/c4268b9e-582e-412e-8800-b7a96994ed16" />)
+## State-Space:-
+The State Space encompasses "virtual" lidar system. It sends off virtual beams of light in all directions to gather an array of points describing the distance and characteristics of nearby objects. The size of the lidar array and resulting observation/state space is configurable when the environment is initialized
+
+The observation data (for each beam in the lidar array):
+
+Distance (i.e. radial distance from player to terminating point of lidar beam)
+Collision detection
+0 if terminated at edge of screen, or at max radius distance
+1 if collided with a rock Note: The yellow dots (1 collide state) represent contact with a rock, the green dots (0 collide state) represent contact with wall or open space.
+## Action-Space:-
+The user has the following discrete actions:
+
+- 0: Don't move
+- 1: Up
+- 2: Right
+- 3: Down
+- 4: Left
+- 5: Up/Right Diagonal
+- 6: Right/Down Diagonal
+- 7: Down/Left Diagonal
+- 8: Left/Up Diagonal
+## Reward Function:-
+```dist_from_center = math.sqrt((xp-0.5)**2 + (yp-0.5)**2)
+        if dist_from_center < 0.35:
+            reward = 1 / (0.65 + dist_from_center)
+        else:
+            reward = 0
+```
+## About Algorithm:-
+Q-Learning is a popular model-free reinforcement learning algorithm used to learn the value of actions taken in given states of an environment. It operates by learning a Q-value (quality value) function, which estimates the expected utility (or future reward) of taking a particular action in a specific state and following a certain policy thereafter. The core concept is to find an optimal action-selection policy that maximizes the total reward over time.
+
+Q-Value is updated using the formula:
+![image](https://github.com/user-attachments/assets/5bb9183d-8343-40e2-832e-32b2ff3d8b45)
+
+
 ## Why Prefer Q-Learning for the Kuiper Belt Escape Project
 For the Kuiper Belt Escape Project, Q-learning is favored due to its strengths in learning optimal policies and robustness to exploration strategies. The off-policy nature of Q-learning allows it to learn the optimal policy independently of the actions taken by the agent, which is crucial in a dynamic and unpredictable environment like the Kuiper Belt. The algorithm’s capability to handle large state spaces efficiently enables timely decision-making, essential for navigating complex scenarios. Additionally, Q-learning’s simplicity of implementation and adaptability to stochastic environments make it a practical choice for rapid prototyping and experimentation in the project. Overall, Q-learning’s advantages in policy learning, exploration robustness, and ease of use position it as the preferred algorithm for the Kuiper Belt Escape Project.
