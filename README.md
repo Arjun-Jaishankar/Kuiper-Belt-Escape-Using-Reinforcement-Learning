@@ -99,7 +99,8 @@ The aim of Task-2 is to train an agent to effectively navigate and interact with
 
 ### Requirements:-
 Try the following in IDE before implementing the algorithms:-
-```import gym
+```
+import gym
 import numpy as np 
 import random
 
@@ -213,7 +214,8 @@ The user has the following discrete actions:
 - 7: Down/Left Diagonal
 - 8: Left/Up Diagonal
 ## Reward Function:-
-```dist_from_center = math.sqrt((xp-0.5)**2 + (yp-0.5)**2)
+```
+dist_from_center = math.sqrt((xp-0.5)**2 + (yp-0.5)**2)
         if dist_from_center < 0.35:
             reward = 1 / (0.65 + dist_from_center)
         else:
