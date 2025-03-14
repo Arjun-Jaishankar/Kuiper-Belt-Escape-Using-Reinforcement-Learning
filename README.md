@@ -25,10 +25,10 @@ The state corresponds to the agent’s current location on the frozen lake.
 ### Action Space:-
 The Action Space defines all possible actions the agent can take from any given state. For the Frozen Lake environment, the actions correspond to moving in one of four directions:
 
-0: Move Left
-1: Move Down
-2: Move Right
-3: Move Up
+- 0: Move Left
+- 1: Move Down 
+- 2: Move Right
+- 3: Move Up
 Thus, the action space is discrete and consists of 4 possible actions. Each action is an attempt to move the agent in the corresponding direction on the grid. However, due to the slippery nature of the lake, the agent may slide to a different tile than the one intended.
 Action Space:
 
@@ -181,25 +181,25 @@ Agent sends off n beams of virtual lidar system.
 ### Observation Space:-
 Array of size [2*n-1] contains Normalized Distances & Collision Characteristics
 ### Actions:-
-0: Don't Move
-1: Up
-2: Right
-3: Down
-4: Left
+- 0: Don't Move
+- 1: Up
+- 2: Right
+- 3: Down
+- 4: Left
 ### Rewards:-
 Inversely related to the distance of agent from center
 Penalties for collision
 ### Image:-
-![Image](<img width="261" alt="146223615-de23593f-02df-4ef1-b356-87153208d6f1" src="https://github.com/user-attachments/assets/c4268b9e-582e-412e-8800-b7a96994ed16" />)
+![image](https://github.com/user-attachments/assets/83c7771b-caef-44d7-87ee-b97eda138c35)
 ## State-Space:-
 The State Space encompasses "virtual" lidar system. It sends off virtual beams of light in all directions to gather an array of points describing the distance and characteristics of nearby objects. The size of the lidar array and resulting observation/state space is configurable when the environment is initialized
 
 The observation data (for each beam in the lidar array):
 
-Distance (i.e. radial distance from player to terminating point of lidar beam)
-Collision detection
-0 if terminated at edge of screen, or at max radius distance
-1 if collided with a rock Note: The yellow dots (1 collide state) represent contact with a rock, the green dots (0 collide state) represent contact with wall or open space.
+- Distance (i.e. radial distance from player to terminating point of lidar beam)
+- Collision detection
+ - 0 if terminated at edge of screen, or at max radius distance
+ - 1 if collided with a rock Note: The yellow dots (1 collide state) represent contact with a rock, the green dots (0 collide state) represent contact with wall or open space.
 ## Action-Space:-
 The user has the following discrete actions:
 
@@ -223,8 +223,8 @@ The user has the following discrete actions:
 Q-Learning is a popular model-free reinforcement learning algorithm used to learn the value of actions taken in given states of an environment. It operates by learning a Q-value (quality value) function, which estimates the expected utility (or future reward) of taking a particular action in a specific state and following a certain policy thereafter. The core concept is to find an optimal action-selection policy that maximizes the total reward over time.
 
 Q-Value is updated using the formula:
-![image](https://github.com/user-attachments/assets/5bb9183d-8343-40e2-832e-32b2ff3d8b45)
 
+![image](https://github.com/user-attachments/assets/5bb9183d-8343-40e2-832e-32b2ff3d8b45)
 
 ## Why Prefer Q-Learning for the Kuiper Belt Escape Project
 For the Kuiper Belt Escape Project, Q-learning is favored due to its strengths in learning optimal policies and robustness to exploration strategies. The off-policy nature of Q-learning allows it to learn the optimal policy independently of the actions taken by the agent, which is crucial in a dynamic and unpredictable environment like the Kuiper Belt. The algorithm’s capability to handle large state spaces efficiently enables timely decision-making, essential for navigating complex scenarios. Additionally, Q-learning’s simplicity of implementation and adaptability to stochastic environments make it a practical choice for rapid prototyping and experimentation in the project. Overall, Q-learning’s advantages in policy learning, exploration robustness, and ease of use position it as the preferred algorithm for the Kuiper Belt Escape Project.
