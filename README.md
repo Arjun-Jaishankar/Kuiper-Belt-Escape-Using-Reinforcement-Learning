@@ -230,3 +230,6 @@ Q-Value is updated using the formula:
 
 ## Why Prefer Q-Learning for the Kuiper Belt Escape Project
 For the Kuiper Belt Escape Project, Q-learning is favored due to its strengths in learning optimal policies and robustness to exploration strategies. The off-policy nature of Q-learning allows it to learn the optimal policy independently of the actions taken by the agent, which is crucial in a dynamic and unpredictable environment like the Kuiper Belt. The algorithm’s capability to handle large state spaces efficiently enables timely decision-making, essential for navigating complex scenarios. Additionally, Q-learning’s simplicity of implementation and adaptability to stochastic environments make it a practical choice for rapid prototyping and experimentation in the project. Overall, Q-learning’s advantages in policy learning, exploration robustness, and ease of use position it as the preferred algorithm for the Kuiper Belt Escape Project.
+
+### CODE
+[KUIPER_ESCAPE](Codes/game.py)
